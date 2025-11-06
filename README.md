@@ -135,6 +135,5 @@ MIT License
 
 ## ✨ Author
 **Pragnesh Raval (SmartDMS Owner)**  
-**Parth Gadhavi (SmartDMS Owner)** 
-**Yash Raval (SmartDMS Owner)** 
+Developed with (Parth Gadhavi and Yash Raval)
 

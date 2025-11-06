@@ -77,7 +77,7 @@ SmartDMS/
 
 ### 1️⃣ Clone or Download Project
 ```bash
-git clone https://github.com/yourusername/SmartDMS.git
+git clone https://github.com/pragneshraval288-create/SmartDMS-
 ```
 
 ### 2️⃣ Install Dependencies

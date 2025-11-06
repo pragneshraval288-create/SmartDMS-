@@ -1,0 +1,557 @@
+2025-11-06 12:31:05,944 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:31:05,945 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:31:32,180 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:31:32,181 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:32:57,189 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:32:57,189 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:33:43,011 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,052 - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask_limiter\extension.py", line 1303, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\routes\auth.py", line 24, in login
+    return render_template('login.html', form=form)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\login.html", line 30, in top-level template code
+    <a class="small" href="{{ url_for('reset_password') }}">Forgot password?</a>
+    ^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password'. Did you mean 'auth.reset_password' instead?
+2025-11-06 12:33:43,069 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,083 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,093 - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask_limiter\extension.py", line 1303, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\routes\auth.py", line 24, in login
+    return render_template('login.html', form=form)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\login.html", line 30, in top-level template code
+    <a class="small" href="{{ url_for('reset_password') }}">Forgot password?</a>
+    ^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password'. Did you mean 'auth.reset_password' instead?
+2025-11-06 12:33:43,100 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /login?next=/dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,109 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,121 - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask_limiter\extension.py", line 1303, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\routes\auth.py", line 24, in login
+    return render_template('login.html', form=form)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\login.html", line 30, in top-level template code
+    <a class="small" href="{{ url_for('reset_password') }}">Forgot password?</a>
+    ^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password'. Did you mean 'auth.reset_password' instead?
+2025-11-06 12:33:43,128 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /login?next=/dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,139 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,151 - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask_limiter\extension.py", line 1303, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\routes\auth.py", line 24, in login
+    return render_template('login.html', form=form)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\login.html", line 30, in top-level template code
+    <a class="small" href="{{ url_for('reset_password') }}">Forgot password?</a>
+    ^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password'. Did you mean 'auth.reset_password' instead?
+2025-11-06 12:33:43,160 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /login?next=/dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,170 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,181 - ERROR - Exception on /login [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask_limiter\extension.py", line 1303, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\routes\auth.py", line 24, in login
+    return render_template('login.html', form=form)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\login.html", line 30, in top-level template code
+    <a class="small" href="{{ url_for('reset_password') }}">Forgot password?</a>
+    ^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'reset_password'. Did you mean 'auth.reset_password' instead?
+2025-11-06 12:33:43,187 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /login?next=/dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,197 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,204 - INFO - ratelimit 5 per 1 minute (127.0.0.1) exceeded at endpoint: auth.login
+2025-11-06 12:33:43,204 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[31m[1mGET /login?next=/dashboard HTTP/1.1[0m" 429 -
+2025-11-06 12:33:43,435 - ERROR - Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\Python\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\Python\Lib\site-packages\flask\app.py", line 802, in handle_user_exception
+    return self.handle_http_exception(e)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 777, in handle_http_exception
+    return self.ensure_sync(handler)(e)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\backend\app.py", line 41, in not_found
+    def not_found(e): return render_template('about.html'), 404
+                             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "D:\Python\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\Python\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\about.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "C:\Users\hp\OneDrive\Desktop\SmartDMS_clean\templates\base.html", line 36, in top-level template code
+    <a class="text-decoration-none brand" href="{{ url_for('dashboard') }}">DMS</a>
+    ^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "D:\Python\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'dashboard'. Did you mean 'dashboard.home' instead?
+2025-11-06 12:33:43,444 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /favicon.ico HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,452 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[32mGET /dashboard HTTP/1.1[0m" 302 -
+2025-11-06 12:33:43,459 - INFO - ratelimit 5 per 1 minute (127.0.0.1) exceeded at endpoint: auth.login
+2025-11-06 12:33:43,460 - INFO - 127.0.0.1 - - [06/Nov/2025 12:33:43] "[31m[1mGET /login?next=/dashboard HTTP/1.1[0m" 429 -
+2025-11-06 12:34:21,315 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:34:21,316 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:34:35,121 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 12:34:35,121 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:34:35,124 - INFO -  * Restarting with stat
+2025-11-06 12:34:37,060 - WARNING -  * Debugger is active!
+2025-11-06 12:34:37,068 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 12:35:08,733 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:08] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:35:08,791 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:08] "[35m[1mGET /login?next=/ HTTP/1.1[0m" 500 -
+2025-11-06 12:35:09,117 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:09] "GET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-11-06 12:35:09,118 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:09] "GET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-11-06 12:35:09,204 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:09] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=QMQlEWSHp4NfI7T4JahX HTTP/1.1" 200 -
+2025-11-06 12:35:09,251 - INFO - 127.0.0.1 - - [06/Nov/2025 12:35:09] "GET /login?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-11-06 12:36:53,992 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:36:53,993 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:41:06,589 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.245.138.186:5000
+2025-11-06 12:41:06,590 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:45:01,456 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 12:45:01,457 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:45:01,461 - INFO -  * Restarting with stat
+2025-11-06 12:45:03,571 - WARNING -  * Debugger is active!
+2025-11-06 12:45:03,576 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 12:45:03,608 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:03] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:45:03,646 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:03] "[35m[1mGET /login?next=/ HTTP/1.1[0m" 500 -
+2025-11-06 12:45:03,954 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:03] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-11-06 12:45:03,965 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:03] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-11-06 12:45:04,052 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:04] "GET /login?__debugger__=yes&cmd=resource&f=console.png&s=T764vdiAOklsF7iLB3zn HTTP/1.1" 200 -
+2025-11-06 12:45:05,159 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:05] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:45:05,189 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:05] "[35m[1mGET /login?next=/ HTTP/1.1[0m" 500 -
+2025-11-06 12:45:05,269 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-11-06 12:45:05,304 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-11-06 12:45:05,400 - INFO - 127.0.0.1 - - [06/Nov/2025 12:45:05] "[36mGET /login?__debugger__=yes&cmd=resource&f=console.png&s=T764vdiAOklsF7iLB3zn HTTP/1.1[0m" 304 -
+2025-11-06 12:53:31,014 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 12:53:31,014 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:53:31,019 - INFO -  * Restarting with stat
+2025-11-06 12:53:32,624 - WARNING -  * Debugger is active!
+2025-11-06 12:53:32,634 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 12:53:32,681 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:32] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:53:32,747 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:32] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:53:33,105 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:33] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-06 12:53:33,951 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:33] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:53:33,962 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:33] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:53:42,185 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:42] "POST /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:53:51,545 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:51] "POST /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:53:56,114 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:56] "POST /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:53:57,518 - INFO - 127.0.0.1 - - [06/Nov/2025 12:53:57] "GET /register HTTP/1.1" 200 -
+2025-11-06 12:54:08,798 - INFO - 127.0.0.1 - - [06/Nov/2025 12:54:08] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-11-06 12:54:08,811 - INFO - ratelimit 5 per 1 minute (127.0.0.1) exceeded at endpoint: auth.login
+2025-11-06 12:54:08,812 - INFO - 127.0.0.1 - - [06/Nov/2025 12:54:08] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2025-11-06 12:54:29,921 - INFO - ratelimit 5 per 1 minute (127.0.0.1) exceeded at endpoint: auth.login
+2025-11-06 12:54:29,923 - INFO - 127.0.0.1 - - [06/Nov/2025 12:54:29] "[31m[1mGET /login HTTP/1.1[0m" 429 -
+2025-11-06 12:56:03,594 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 12:56:03,594 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 12:56:03,597 - INFO -  * Restarting with stat
+2025-11-06 12:56:06,042 - WARNING -  * Debugger is active!
+2025-11-06 12:56:06,046 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 12:56:06,078 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:06] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:56:06,097 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:06] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:56:07,521 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:07] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 12:56:07,531 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:07] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 12:56:08,764 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:08] "GET /register HTTP/1.1" 200 -
+2025-11-06 12:56:17,370 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:17] "POST /register HTTP/1.1" 200 -
+2025-11-06 12:56:22,987 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:22] "GET /login HTTP/1.1" 200 -
+2025-11-06 12:56:28,795 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:28] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 12:56:28,855 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:28] "[35m[1mGET /dashboard HTTP/1.1[0m" 500 -
+2025-11-06 12:56:29,169 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:29] "GET /dashboard?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-11-06 12:56:29,170 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:29] "GET /dashboard?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-11-06 12:56:29,255 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:29] "GET /dashboard?__debugger__=yes&cmd=resource&f=console.png&s=3MGTAHHXVnyhnGg2tdNt HTTP/1.1" 200 -
+2025-11-06 12:56:29,302 - INFO - 127.0.0.1 - - [06/Nov/2025 12:56:29] "GET /dashboard?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-11-06 13:00:07,003 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 13:00:07,004 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 13:00:07,008 - INFO -  * Restarting with stat
+2025-11-06 13:00:08,803 - WARNING -  * Debugger is active!
+2025-11-06 13:00:08,815 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 13:00:08,848 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:08] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:00:08,868 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:08] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:00:10,259 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:10] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:00:10,270 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:10] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:00:16,390 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:16] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 13:00:16,452 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:16] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:00:37,785 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:37] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:00:49,541 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:49] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:00:49,605 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:49] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:00:52,904 - INFO - 127.0.0.1 - - [06/Nov/2025 13:00:52] "GET /preview/1 HTTP/1.1" 200 -
+2025-11-06 13:01:02,992 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:02] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 13:01:03,007 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:03] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:01:06,226 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:06] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:01:11,534 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:11] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:01:15,198 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:15] "GET /download/1 HTTP/1.1" 200 -
+2025-11-06 13:01:24,288 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:24] "[32mGET /delete/1 HTTP/1.1[0m" 302 -
+2025-11-06 13:01:24,309 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:24] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:01:26,874 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:26] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:01:28,917 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:28] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:01:30,505 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:30] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:01:48,019 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:48] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:01:48,041 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:48] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:01:54,809 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:54] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:01:57,750 - INFO - 127.0.0.1 - - [06/Nov/2025 13:01:57] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:02:13,088 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:13] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:02:13,108 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:13] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:02:14,956 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:14] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:02:22,741 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:22] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:02:22,761 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:22] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:02:25,186 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:25] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:02:26,683 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:26] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:02:34,052 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:34] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:02:34,072 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:34] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:02:52,366 - INFO - 127.0.0.1 - - [06/Nov/2025 13:02:52] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:03:01,311 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:01] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:03:01,335 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:01] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:03:07,324 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:07] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:03:17,236 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:17] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:03:17,264 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:17] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:03:43,324 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:43] "GET /documents?title=XLSX&tags= HTTP/1.1" 200 -
+2025-11-06 13:03:45,581 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:45] "GET /documents?title=XLSX&tags= HTTP/1.1" 200 -
+2025-11-06 13:03:49,520 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:49] "GET /documents?title=&tags= HTTP/1.1" 200 -
+2025-11-06 13:03:58,748 - INFO - 127.0.0.1 - - [06/Nov/2025 13:03:58] "GET /documents?title=2&tags= HTTP/1.1" 200 -
+2025-11-06 13:04:04,731 - INFO - 127.0.0.1 - - [06/Nov/2025 13:04:04] "GET /documents?title=&tags= HTTP/1.1" 200 -
+2025-11-06 13:04:17,828 - INFO - 127.0.0.1 - - [06/Nov/2025 13:04:17] "GET /documents?title=PDF&tags= HTTP/1.1" 200 -
+2025-11-06 13:04:21,395 - INFO - 127.0.0.1 - - [06/Nov/2025 13:04:21] "GET /documents?title=&tags= HTTP/1.1" 200 -
+2025-11-06 13:13:27,937 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 13:13:27,939 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 13:13:27,942 - INFO -  * Restarting with stat
+2025-11-06 13:13:30,336 - WARNING -  * Debugger is active!
+2025-11-06 13:13:30,344 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 13:13:30,379 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:30] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:13:30,403 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:30] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:13:31,875 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:31] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:13:31,887 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:31] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:13:38,527 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:38] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 13:13:38,571 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:38] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:13:44,080 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:44] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:13:45,200 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:45] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:13:51,180 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:51] "GET /documents?title=&tags=&type=pdf HTTP/1.1" 200 -
+2025-11-06 13:13:54,955 - INFO - 127.0.0.1 - - [06/Nov/2025 13:13:54] "GET /documents?title=&tags=&type=xlsx HTTP/1.1" 200 -
+2025-11-06 13:14:05,607 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:05] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:14:09,227 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:09] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:14:10,002 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:10] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:14:37,101 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 13:14:37,103 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 13:14:37,105 - INFO -  * Restarting with stat
+2025-11-06 13:14:38,782 - WARNING -  * Debugger is active!
+2025-11-06 13:14:38,788 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 13:14:38,834 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:38] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:14:38,860 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:38] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:14:40,231 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:40] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 13:14:40,242 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:40] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 13:14:50,283 - INFO - 127.0.0.1 - - [06/Nov/2025 13:14:50] "GET /register HTTP/1.1" 200 -
+2025-11-06 13:15:02,843 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:02] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-11-06 13:15:02,856 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:02] "GET /login HTTP/1.1" 200 -
+2025-11-06 13:15:15,695 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:15] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 13:15:15,745 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:15] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:15:28,834 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:28] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:15:37,590 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:37] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:15:37,651 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:37] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:15:49,753 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:49] "GET /history/7 HTTP/1.1" 200 -
+2025-11-06 13:15:55,889 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:55] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:15:59,038 - INFO - 127.0.0.1 - - [06/Nov/2025 13:15:59] "GET /upload HTTP/1.1" 200 -
+2025-11-06 13:16:23,724 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:23] "[32mPOST /upload HTTP/1.1[0m" 302 -
+2025-11-06 13:16:23,744 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:23] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:16:30,405 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:30] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-06 13:16:30,426 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:30] "GET /login HTTP/1.1" 200 -
+2025-11-06 13:16:36,515 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:36] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 13:16:36,541 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:36] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 13:16:39,668 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:39] "GET /documents HTTP/1.1" 200 -
+2025-11-06 13:16:45,997 - INFO - 127.0.0.1 - - [06/Nov/2025 13:16:45] "GET /history/8 HTTP/1.1" 200 -
+2025-11-06 14:15:22,475 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 14:15:22,478 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 14:15:22,482 - INFO -  * Restarting with stat
+2025-11-06 14:15:24,933 - WARNING -  * Debugger is active!
+2025-11-06 14:15:24,942 - INFO -  * Debugger PIN: 516-219-552
+2025-11-06 14:15:24,983 - INFO - 127.0.0.1 - - [06/Nov/2025 14:15:24] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:15:25,014 - INFO - 127.0.0.1 - - [06/Nov/2025 14:15:25] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:15:26,715 - INFO - 127.0.0.1 - - [06/Nov/2025 14:15:26] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:15:26,744 - INFO - 127.0.0.1 - - [06/Nov/2025 14:15:26] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:26:06,238 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 14:26:06,240 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 14:26:06,244 - INFO -  * Restarting with stat
+2025-11-06 14:26:10,751 - WARNING -  * Debugger is active!
+2025-11-06 14:26:10,759 - INFO -  * Debugger PIN: 106-319-701
+2025-11-06 14:26:10,874 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:10] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:26:10,963 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:10] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:26:12,461 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:12] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:26:12,479 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:12] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:26:20,951 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:20] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 14:26:21,084 - INFO - 127.0.0.1 - - [06/Nov/2025 14:26:21] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:30:46,932 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-06 14:30:46,933 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-06 14:30:46,935 - INFO -  * Restarting with stat
+2025-11-06 14:30:49,183 - WARNING -  * Debugger is active!
+2025-11-06 14:30:49,190 - INFO -  * Debugger PIN: 106-319-701
+2025-11-06 14:30:49,226 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:49] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:30:49,247 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:49] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:30:50,655 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:50] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-06 14:30:50,667 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:50] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-06 14:30:56,303 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:56] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 14:30:56,404 - INFO - 127.0.0.1 - - [06/Nov/2025 14:30:56] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:31:02,976 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:02] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-06 14:31:02,989 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:02] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:31:14,202 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:14] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 14:31:14,227 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:14] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:31:22,746 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:22] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:24,331 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:24] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:31:33,505 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:33] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2025-11-06 14:31:33,522 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:33] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:31:36,277 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:36] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:39,325 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:39] "[32mGET /delete/8 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:39,357 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:39] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:41,584 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:41] "[32mGET /delete/7 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:41,608 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:41] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:44,241 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:44] "[32mGET /delete/6 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:44,265 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:44] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:46,786 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:46] "[32mGET /delete/5 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:46,804 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:46] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:49,303 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:49] "[32mGET /delete/4 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:49,321 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:49] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:51,736 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:51] "[32mGET /delete/3 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:51,752 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:51] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:53,688 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:53] "[32mGET /delete/2 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:53,710 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:53] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:55,776 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:55] "[32mGET /delete/1 HTTP/1.1[0m" 302 -
+2025-11-06 14:31:55,791 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:55] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:31:57,997 - INFO - 127.0.0.1 - - [06/Nov/2025 14:31:57] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:32:13,018 - INFO - 127.0.0.1 - - [06/Nov/2025 14:32:13] "GET /upload HTTP/1.1" 200 -
+2025-11-06 14:32:14,228 - INFO - 127.0.0.1 - - [06/Nov/2025 14:32:14] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:32:22,803 - INFO - 127.0.0.1 - - [06/Nov/2025 14:32:22] "GET /documents HTTP/1.1" 200 -
+2025-11-06 14:32:29,747 - INFO - 127.0.0.1 - - [06/Nov/2025 14:32:29] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:33:01,408 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:01] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-06 14:33:01,422 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:01] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:33:03,876 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:03] "GET /register HTTP/1.1" 200 -
+2025-11-06 14:33:19,669 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:19] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-11-06 14:33:19,679 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:19] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:33:27,451 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 14:33:27,469 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:27] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:33:36,599 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:36] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-06 14:33:36,616 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:36] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:33:37,976 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:37] "GET /reset-password HTTP/1.1" 200 -
+2025-11-06 14:33:48,086 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:48] "[32mPOST /reset-password HTTP/1.1[0m" 302 -
+2025-11-06 14:33:48,096 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:48] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:33:55,678 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:55] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 14:33:55,696 - INFO - 127.0.0.1 - - [06/Nov/2025 14:33:55] "GET /dashboard HTTP/1.1" 200 -
+2025-11-06 14:34:01,846 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:01] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-11-06 14:34:01,864 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:01] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:34:03,492 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:03] "GET /reset-password HTTP/1.1" 200 -
+2025-11-06 14:34:11,356 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:11] "[32mPOST /reset-password HTTP/1.1[0m" 302 -
+2025-11-06 14:34:11,370 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:11] "GET /login HTTP/1.1" 200 -
+2025-11-06 14:34:17,899 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:17] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-06 14:34:17,919 - INFO - 127.0.0.1 - - [06/Nov/2025 14:34:17] "GET /dashboard HTTP/1.1" 200 -

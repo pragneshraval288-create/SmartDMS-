@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% block title %}Documents · DMS{% endblock %}
+{% block content %}
+
+<div class="card p-3">
+  <form class="row g-2 align-items-end" method="get">
+
+    <!-- ✅ Search -->
+    <div class="col-12 col-md-4">
+      <label class="form-label">Search</label>
+      <input class="form-control" type="search" name="title"
+             value="{{ request.args.get('title','') }}"
+             placeholder="file title…">
+    </div>
+
+    <!-- ✅ Tag -->
+    <div class="col-6 col-md-3">
+      <label class="form-label">Tag</label>
+      <input class="form-control" name="tags"
+             value="{{ request.args.get('tags','') }}"
+             placeholder="e.g. work, personal">
+    </div>
+
+    <!-- ✅ NEW: File Type Dropdown -->
+    <div class="col-6 col-md-3">
+      <label class="form-label">File Type</label>
+      <select class="form-select" name="type">
+        <option value="">All</option>
+        <option value="pdf"   {% if request.args.get('type')=='pdf' %}selected{% endif %}>PDF</option>
+        <option value="docx"  {% if request.args.get('type')=='docx' %}selected{% endif %}>DOCX</option>
+        <option value="xlsx"  {% if request.args.get('type')=='xlsx' %}selected{% endif %}>Excel (XLSX)</option>
+        <option value="pptx"  {% if request.args.get('type')=='pptx' %}selected{% endif %}>PowerPoint (PPTX)</option>
+        <option value="txt"   {% if request.args.get('type')=='txt' %}selected{% endif %}>Text (TXT)</option>
+        <option value="image" {% if request.args.get('type')=='image' %}selected{% endif %}>Images (JPG/PNG)</option>
+      </select>
+    </div>
+
+    <!-- ✅ Filter Button -->
+    <div class="col-12 col-md-2">
+      <button class="btn btn-primary w-100" type="submit">
+        <i class="bi bi-funnel me-1"></i>Filter
+      </button>
+    </div>
+
+  </form>
+</div>
+
+
+<!-- ✅ DOCUMENT TABLE -->
+<div class="card p-3 mt-3">
+  <div class="table-responsive">
+    <table class="table align-middle">
+
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Version</th>
+          <th>Tags</th>
+          <th>Uploaded</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for d in documents %}
+        <tr>
+
+          <td class="fw-semibold">{{ d.title }}</td>
+
+          <td class="text-uppercase small text-muted">
+            {{ d.filename.rsplit('.',1)[-1] }}
+          </td>
+
+          <td class="text-center">v{{ d.version }}</td>
+
+          <td>
+            {% if d.tags %}
+              {% for t in d.tags.split(',') %}
+              <span class="badge text-bg-light border">#{{ t.strip() }}</span>
+              {% endfor %}
+            {% endif %}
+          </td>
+
+          <td>{{ d.upload_date.strftime('%d %b %Y') }}</td>
+
+          <td class="text-end">
+
+            <!-- ✅ Download -->
+            <a class="btn btn-sm btn-outline-secondary"
+               href="{{ url_for('documents.download', doc_id=d.id) }}">
+              <i class="bi bi-download"></i>
+            </a>
+
+            <!-- ✅ Preview -->
+            <a class="btn btn-sm btn-outline-secondary"
+               href="{{ url_for('documents.preview', doc_id=d.id) }}">
+              <i class="bi bi-eye"></i>
+            </a>
+
+            <!-- ✅ Version History -->
+            <a class="btn btn-sm btn-outline-secondary"
+               href="{{ url_for('history.show', doc_id=d.id) }}">
+              <i class="bi bi-clock-history"></i>
+            </a>
+
+            <!-- ✅ Delete -->
+            <a class="btn btn-sm btn-outline-danger"
+               href="{{ url_for('documents.delete', doc_id=d.id) }}"
+               onclick="return confirm('Move to trash?')">
+              <i class="bi bi-trash"></i>
+            </a>
+
+          </td>
+
+        </tr>
+
+        {% else %}
+        <tr>
+          <td colspan="6" class="text-center text-muted">
+            No documents found.
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+    </table>
+  </div>
+</div>
+
+{% endblock %}

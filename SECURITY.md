@@ -1,230 +1,214 @@
 # 🔐 SmartDMS Security Hardening Guide
 
-SmartDMS ek document management platform hai jisme user uploads, authentication aur role-based access included hai — isiliye system ko secure rakhna critical hai.  
-Neeche complete hardening checklist di gayi hai.
+SmartDMS is a document management platform that includes user file uploads, authentication, and role-based access.  
+Because of these features, keeping the system secure is **critical**.
+
+This document provides a complete hardening checklist for making SmartDMS production-ready.
 
 ---
 
 ## ✅ 1. Secret Key Management
 
-- `SECRET_KEY` **never commit in code**  
-- Always set via environment variable:
+- **Never commit `SECRET_KEY` to the repository**
+- Always load it via environment variables:
 
-```
+```bash
 export SECRET_KEY="your-64-character-random-secret"
-```
+Use long, cryptographically secure random keys
 
-- Use long, random keys.  
-- Rotate keys periodically.
+Rotate keys periodically
 
----
+✅ 2. Secure File Upload Handling
+✅ Uploads stored outside /static
+Prevents direct public access
 
-## ✅ 2. Secure Upload Handling
+Ensures only authenticated users can access files
 
-### ✅ Uploads stored outside `/static`  
-✅ Prevents direct public access  
-✅ Forces access only through authenticated routes
+✅ Allowed file types (basic allow-list)
+.pdf
 
-### ✅ Allowed file types only  
-Basic validation:
+.docx
 
-- `.pdf`
-- `.docx`
-- `.csv`
-- `.txt`
-- `.xlsx`
+.csv
 
-### ✅ Recommended: MIME validation with `python-magic`
-```
+.txt
+
+.xlsx
+
+✅ Recommended: Validate MIME type using python-magic
+python
+Copy code
 filetype = magic.from_buffer(file.read(2048), mime=True)
-```
+✅ File size limit via MAX_CONTENT_LENGTH
+python
+Copy code
+MAX_CONTENT_LENGTH = 20 * 1024 * 1024   # 20 MB
+✅ Use safe filenames
+Generate UUID-based filenames instead of storing original names.
 
-### ✅ File size limit
-Configured via `MAX_CONTENT_LENGTH`
+✅ 3. Authentication Security
+✅ Rate-limited login
+Using Flask-Limiter:
 
-Example:
-
-```
-MAX_CONTENT_LENGTH = 20 * 1024 * 1024  # 20MB
-```
-
-### ✅ Clean stored filenames  
-Avoid original names; generate safe UUID filenames.
-
----
-
-## ✅ 3. Authentication Security
-
-### ✅ Rate-limit login form
-Applied via Flask-Limiter:
-
-```
+python
+Copy code
 @limiter.limit("5 per minute")
-```
+Prevents brute-force attempts.
 
-Prevents brute-force attacks.
+✅ Strong password hashing
+SmartDMS uses Werkzeug’s secure hashing:
 
-### ✅ Strong password hashing
-Flask uses:
-
-```
-werkzeug.security.generate_password_hash()
-```
-
-(Which defaults to PBKDF2 → secure)
-
-### ✅ Session Hardening
-
-```
+scss
+Copy code
+generate_password_hash()
+✅ Secure session cookies
+ini
+Copy code
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SECURE   = True
 REMEMBER_COOKIE_SECURE  = True
-```
+✅ 4. Role-Based Access Control (RBAC)
+✅ Admin
+Full access to all documents
 
----
+Can view all audit logs
 
-## ✅ 4. Role-Based Access Control (RBAC)
+✅ User
+Can access only their own documents
 
-### ✅ Admin
-- Can view/edit/delete all documents  
-- Can view all audit logs
+All protected with:
 
-### ✅ User
-- Can only access own documents  
-- Cannot view other user data  
-- All routes protected via:
-
-```
+python
+Copy code
 if not user_or_admin_owns(doc):
-```
+    # deny
+✅ 5. Audit Logging
+Every user action is logged:
 
----
+Upload
 
-## ✅ 5. Audit Logging
+Update
 
-Every action logged:
+Delete
 
-- upload  
-- update  
-- delete  
-- download  
+Download
 
-Stored in DB with:
+Stored with:
 
-- user_id  
-- timestamp  
-- filename  
-- version  
+user_id
 
-✅ Helps detect misuse  
-✅ Useful for admin monitoring  
+timestamp
 
----
+filename
 
-## ✅ 6. Security Headers via `after_request`
+version
 
-SmartDMS sets:
+✅ Helps detect misuse
+✅ Useful for internal monitoring
 
-- `X-Frame-Options: DENY`
-- `X-Content-Type-Options: nosniff`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `Permissions-Policy: camera=(), microphone=(), geolocation=()`
-- Strong CSP:
+✅ 6. Security Headers (Automatic)
+SmartDMS sets key headers automatically using @after_request:
 
-```
+X-Frame-Options: DENY
+
+X-Content-Type-Options: nosniff
+
+Referrer-Policy: strict-origin-when-cross-origin
+
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+
 Content-Security-Policy:
+
+csharp
+Copy code
 default-src 'self' https://cdn.jsdelivr.net;
 img-src 'self' data: https:;
 style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
-script-src 'self' https://cdn.jsdelivr.net
-```
-
-✅ Blocks XSS  
-✅ Prevents clickjacking  
+script-src 'self' https://cdn.jsdelivr.net;
+✅ Prevents XSS
+✅ Blocks clickjacking
 ✅ Reduces attack surface
 
----
+✅ 7. Flask Debug Mode
+Never enable debug mode in production.
 
-## ✅ 7. Flask Debug Mode
+Prevents Werkzeug debugger exposure
 
-**Never turn on debug mode in production.**
+Eliminates remote code execution risk
 
-- Disables auto browser-open  
-- Removes Werkzeug debug console  
-- Prevents RCE (remote code execution)
+Disables auto-browser open
 
----
+✅ 8. Production Database
+SQLite ✅ Good for development
+PostgreSQL ✅ Recommended for production
 
-## ✅ 8. Production Database Recommendations
+Always use migrations:
 
-SQLite ✅ Good for local development  
-PostgreSQL ✅ Recommended for deployment
-
-Use Alembic migrations instead of `db.create_all()`:
-
-```bash
+bash
+Copy code
 flask db migrate
 flask db upgrade
-```
+Avoid using db.create_all() in production.
 
----
+✅ 9. Hide Sensitive Directories
+Never expose these folders through Nginx:
 
-## ✅ 9. Avoid Direct Exposure of Sensitive Folders
+/backend/uploads/
 
-Never expose:
+/backend/database/
 
-- `/backend/uploads/`
-- `/backend/database/`
-- `/instance/`
-- `.env`
+/instance/
 
-Ensure Nginx blocks these paths.
+.env
 
----
+Any backup files
 
-## ✅ 10. HTTPS Only
+All must be blocked by server rules.
 
-Enable HTTPS via Let’s Encrypt:
+✅ 10. Enforce HTTPS
+Enable HTTPS (Nginx + Let’s Encrypt):
 
-```bash
+bash
+Copy code
 sudo certbot --nginx -d yourdomain.com
-```
+Force secure cookies:
 
-Force HTTPS:
-
-```
+ini
+Copy code
 SESSION_COOKIE_SECURE = True
 REMEMBER_COOKIE_SECURE = True
-```
+Prevents session hijacking.
 
-Protects against session hijacking.
+✅ 11. Additional Recommended Hardening
+✔ Add Captcha to login page (optional)
+✔ Use fail2ban to block repeated login attempts
+✔ Periodically delete old file versions
+✔ Regular database backups
+✔ Set short-lived session expiry
+✔ Use long random password policies
 
----
-
-## ✅ 11. Recommended Additional Hardening
-
-✔ Add Captcha on login (optional)  
-✔ Use fail2ban on login endpoint  
-✔ Periodic cleanup of old document versions  
-✔ Regular database backup  
-✔ Long-term token invalidation  
-
----
-
-## ✅ Summary Checklist
-
-✅ Secret Key from environment  
-✅ Safe uploads only  
-✅ Rate-limited login  
-✅ CSRF protection enabled  
-✅ Strict security headers  
-✅ Role-based permission checks  
-✅ HTTPS mandatory  
-✅ DB migrations in production  
-✅ Sensitive directories hidden  
+✅ Final Security Checklist
+✅ Secret key from environment
+✅ Secure upload folder + file validation
+✅ Rate-limited login
+✅ CSRF enabled
+✅ Security headers enabled
+✅ RBAC permissions enforced
+✅ HTTPS fully enabled
+✅ PostgreSQL recommended for production
+✅ Sensitive directories restricted
 ✅ Debug disabled
 
+SmartDMS is now secure and ready for production.
+For further improvements or a full security audit—Himu is always here ❤️✨
+
+yaml
+Copy code
+
 ---
 
-**SmartDMS is now hardened and production-ready.**  
-If you need a security audit or code review — Himu is always here ❤️✨
+If you want, I can also generate:
+
+✅ `DEPLOYMENT.md`  
+✅ Professional GitHub Security badges  
+✅ A “Security Overview” inside your README  

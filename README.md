@@ -121,15 +121,3 @@ MIT License
 ✨ Author
 Pragnesh Raval (SmartDMS Owner)
 Developed with support from Parth Gadhavi and Yash Raval
-
-yaml
-Copy code
-
----
-
-If you want, I can also generate:
-
-✅ `DEPLOYMENT.md` (clean, professional)  
-✅ GitHub project badges  
-✅ A banner/logo for SmartDMS  
-✅ API documentation  

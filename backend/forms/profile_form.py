@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, SubmitField
 from wtforms.validators import DataRequired, Length, Email, Regexp, Optional
-from backend.models import User
 
 phone_regex = r'^\+?\d{10,15}$'
 

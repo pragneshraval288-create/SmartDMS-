@@ -6,9 +6,9 @@ import webbrowser
 from flask import Flask
 from flask_login import current_user
 
-# ✅ absolute imports
 from backend.config import Config, TEMPLATE_DIR, STATIC_DIR
 from backend.extensions import db, login_manager, migrate, csrf, limiter
+from backend.models import User
 
 
 def create_app():
@@ -18,13 +18,13 @@ def create_app():
         static_folder=STATIC_DIR
     )
 
-    # ✅ Load config
+    # ✅ Config load
     app.config.from_object(Config)
 
     # ✅ Ensure upload folder exists
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
 
-    # ✅ Initialize extensions
+    # ✅ Init extensions
     db.init_app(app)
     login_manager.init_app(app)
     migrate.init_app(app, db)
@@ -33,7 +33,7 @@ def create_app():
 
     login_manager.login_view = "auth.login"
 
-    # ✅ global current_user
+    # ✅ User globally accessible
     @app.context_processor
     def inject_user():
         return dict(current_user=current_user)
@@ -47,13 +47,11 @@ def create_app():
     app.register_blueprint(documents.bp)
     app.register_blueprint(history.bp)
     app.register_blueprint(api.bp)
-
-    # ✅ VERY IMPORTANT: URL Prefix for Profile
-    app.register_blueprint(profile_bp, url_prefix="/profile")
+    app.register_blueprint(profile_bp)   # ✅ URL = /profile
 
     # ✅ Security headers
     @app.after_request
-    def after(resp):
+    def _headers(resp):
         resp.headers.setdefault("X-Content-Type-Options", "nosniff")
         resp.headers.setdefault("X-Frame-Options", "DENY")
         resp.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
@@ -70,10 +68,10 @@ def create_app():
     return app
 
 
-# ✅ AUTO RUNNER
 def run_app():
     app = create_app()
 
+    # ✅ Auto open browser in debug only
     def open_browser():
         try:
             webbrowser.open_new("http://127.0.0.1:5000/")
@@ -82,6 +80,7 @@ def run_app():
 
     threading.Timer(1.0, open_browser).start()
 
+    # ✅ Auto DB tables (dev only)
     with app.app_context():
         db.create_all()
 

@@ -257,3 +257,41 @@
 2025-11-10 17:41:24,794 - INFO - 127.0.0.1 - - [10/Nov/2025 17:41:24] "GET /login?next=/ HTTP/1.1" 200 -
 2025-11-10 17:41:33,343 - INFO - 127.0.0.1 - - [10/Nov/2025 17:41:33] "[32mPOST /login HTTP/1.1[0m" 302 -
 2025-11-10 17:41:33,391 - INFO - 127.0.0.1 - - [10/Nov/2025 17:41:33] "GET /dashboard HTTP/1.1" 200 -
+2025-11-10 17:43:40,305 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-10 17:43:40,305 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 17:43:40,309 - INFO -  * Restarting with stat
+2025-11-10 17:43:42,190 - WARNING -  * Debugger is active!
+2025-11-10 17:43:42,195 - INFO -  * Debugger PIN: 137-104-899
+2025-11-10 17:43:42,226 - INFO - 127.0.0.1 - - [10/Nov/2025 17:43:42] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 17:43:42,247 - INFO - 127.0.0.1 - - [10/Nov/2025 17:43:42] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 17:43:43,663 - INFO - 127.0.0.1 - - [10/Nov/2025 17:43:43] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 17:43:43,671 - INFO - 127.0.0.1 - - [10/Nov/2025 17:43:43] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 17:43:56,138 - INFO - 127.0.0.1 - - [10/Nov/2025 17:43:56] "POST /login HTTP/1.1" 200 -
+2025-11-10 17:44:06,555 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-10 17:44:06,605 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:06] "GET /dashboard HTTP/1.1" 200 -
+2025-11-10 17:44:38,348 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-10 17:44:38,349 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 17:44:38,354 - INFO -  * Restarting with stat
+2025-11-10 17:44:40,240 - WARNING -  * Debugger is active!
+2025-11-10 17:44:40,245 - INFO -  * Debugger PIN: 137-104-899
+2025-11-10 17:44:41,809 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:41] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 17:44:41,908 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:41] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 17:44:42,235 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:42] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-11-10 17:44:42,577 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:42] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 17:44:42,589 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:42] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 17:44:53,454 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:53] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-10 17:44:53,503 - INFO - 127.0.0.1 - - [10/Nov/2025 17:44:53] "GET /dashboard HTTP/1.1" 200 -
+2025-11-10 18:00:10,291 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-10 18:00:10,291 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 18:00:10,296 - INFO -  * Restarting with stat
+2025-11-10 18:00:14,793 - WARNING -  * Debugger is active!
+2025-11-10 18:00:14,801 - INFO -  * Debugger PIN: 137-104-899
+2025-11-10 18:00:14,878 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:14] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 18:00:14,911 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:14] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 18:00:16,704 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:16] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 18:00:16,732 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:16] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 18:00:42,512 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:42] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-10 18:00:42,574 - INFO - 127.0.0.1 - - [10/Nov/2025 18:00:42] "GET /dashboard HTTP/1.1" 200 -

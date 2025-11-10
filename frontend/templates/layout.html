@@ -16,8 +16,7 @@
       width: 230px;
       height: 100vh;
       position: fixed;
-      top: 0; 
-      left: 0;
+      top: 0; left: 0;
       background: white;
       border-right: 1px solid #e5e5e5;
       padding-top: 70px;
@@ -49,6 +48,7 @@
               type="button"
               data-bs-toggle="dropdown"
               aria-expanded="false">
+
         <i class="bi bi-person-circle me-2"></i>
         {{ current_user.full_name or current_user.username }}
       </button>
@@ -63,7 +63,7 @@
 
         <li><hr class="dropdown-divider"></li>
 
-        <!-- ✅ FIXED LINK -->
+        <!-- ✅ FIXED PROFILE LINK -->
         <li>
           <a class="dropdown-item" href="{{ url_for('profile.profile_page') }}">
             <i class="bi bi-person-lines-fill me-2"></i> My Profile
@@ -110,7 +110,7 @@
         </a>
       </li>
 
-      <!-- ✅ FIXED SIDEBAR LINK -->
+      <!-- ✅ FIXED PROFILE LINK -->
       <li class="nav-item mb-2">
         <a class="nav-link {% if request.endpoint=='profile.profile_page' %}active{% endif %}"
            href="{{ url_for('profile.profile_page') }}">

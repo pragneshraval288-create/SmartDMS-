@@ -1,20 +1,28 @@
-from datetime import datetime
+from datetime import datetime, date
 from flask_login import UserMixin
-from backend.extensions import db   # ✅ correct import — no circular import
-
-# ✅ Remove "db = db" → not needed at all
+from backend.extensions import db
 
 
 class User(UserMixin, db.Model):
     __tablename__ = "user"
 
-    id       = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(150), nullable=False, unique=True)
-    password = db.Column(db.String(150), nullable=False)
-    role     = db.Column(db.String(20), default='user')
+    id          = db.Column(db.Integer, primary_key=True)
+    username    = db.Column(db.String(150), nullable=False, unique=True)
+
+    # ✅ New fields
+    full_name   = db.Column(db.String(150), nullable=False)
+    email       = db.Column(db.String(150), nullable=False, unique=True, index=True)
+    mobile      = db.Column(db.String(20), unique=True)
+    dob         = db.Column(db.Date)
+
+    password    = db.Column(db.String(150), nullable=False)
+    role        = db.Column(db.String(20), default='user')
+
+    created_at  = db.Column(db.DateTime, default=datetime.utcnow)
 
     # Relationship
     documents = db.relationship('Document', backref='uploader', lazy=True)
+
 
 
 class Document(db.Model):
@@ -29,6 +37,7 @@ class Document(db.Model):
     version     = db.Column(db.Integer, default=1)
 
 
+
 class Audit(db.Model):
     __tablename__ = "audit"
 
@@ -39,5 +48,4 @@ class Audit(db.Model):
     version   = db.Column(db.Integer, nullable=False, default=1)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # Relationship
     user      = db.relationship('User')

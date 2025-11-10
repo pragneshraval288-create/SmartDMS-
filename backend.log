@@ -1,0 +1,12 @@
+2025-11-10 14:36:11,325 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-11-10 14:36:11,325 - INFO - [33mPress CTRL+C to quit[0m
+2025-11-10 14:36:11,329 - INFO -  * Restarting with stat
+2025-11-10 14:36:14,004 - WARNING -  * Debugger is active!
+2025-11-10 14:36:14,012 - INFO -  * Debugger PIN: 115-732-633
+2025-11-10 14:36:14,044 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:14] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 14:36:14,069 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:14] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 14:36:15,620 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:15] "[32mGET / HTTP/1.1[0m" 302 -
+2025-11-10 14:36:15,631 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:15] "GET /login?next=/ HTTP/1.1" 200 -
+2025-11-10 14:36:26,129 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:26] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-11-10 14:36:26,172 - INFO - 127.0.0.1 - - [10/Nov/2025 14:36:26] "GET /dashboard HTTP/1.1" 200 -

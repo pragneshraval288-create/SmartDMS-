@@ -1,56 +1,69 @@
 # 📁 SmartDMS – Document Management System (Flask)
 
-SmartDMS is a lightweight, fast, secure, and user-friendly **Document Management System** built using Flask.  
-It includes separate permissions for Admin and Regular Users.
+SmartDMS is a secure, lightweight, and user-friendly **Document Management System** built using **Flask + SQLite**.  
+It provides authentication, role-based access, secure password validation, and a clean Bootstrap UI for document handling.
 
 ---
 
-## ✅ Features
+# ✅ Features
 
-### 🔐 Authentication
-- Secure Login / Logout  
-- Role-based Access (Admin / User)  
+## 🔐 Authentication & Security
+- Secure Login & Logout
+- Password Hashing (Werkzeug)
+- Strict Password Policy  
+  ✅ Uppercase + lowercase + 1 special (@ # $ % ^ & *) + digits  
 - Password Reset  
-
-### 📁 Document Management
-- Upload documents  
-- Edit document details  
-- Full document versioning (v1, v2, v3...)  
-- Delete documents  
-- View / Preview / Download  
-- Search by title, tags, and file type  
-- Users can access only their own documents (Admin has full access)
-
-### 📝 Activity Audit Log
-- Tracks which user performed which action  
-- Actions include upload / download / update / delete  
-- Timestamp + version tracking  
-
-### 📊 Dashboard
-- Total documents  
-- This week’s uploads  
-- Recent activity  
-
-### ✅ Admin Capabilities
-- Can view/manage all documents  
-- Can read all audit logs  
-- Normal users are restricted only to their own data  
+- SQL Injection Safe (SQLAlchemy ORM)
+- Show/Hide Password Toggle
+- Flash Alerts (Success / Error)
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Python 3.10+**
-- **Flask**
-- **Flask-Login**
-- **Flask-WTF**
-- **Flask-Migrate**
-- **SQLite Database**
-- **Bootstrap 5**
+## 📁 Document Management
+- Upload Documents
+- View & Download Files
+- Delete Documents
+- Search by Document Title
+- Only allowed file types:
+  - pdf  
+  - docx  
+  - txt  
+  - png  
+  - jpg  
 
 ---
 
-## 📂 Folder Structure
+## 👥 Role-Based Access
+- **Admin** → Full Access  
+- **User** → Limited Access  
+
+Choose role at registration.
+
+---
+
+## 🎨 Frontend UI (Bootstrap 5)
+- Clean & Modern Layout
+- Sidebar Navigation
+- Dashboard Components
+- Flash Message Support
+- Responsive Design
+
+---
+
+# 🛠 Tech Stack
+
+| Component | Technology |
+|----------|------------|
+| Backend  | Flask (Python) |
+| Database | SQLite |
+| Auth     | Flask-Login |
+| Forms    | Flask-WTF |
+| UI       | Bootstrap 5 |
+| Security | Werkzeug, Custom Password Validator |
+
+---
+
+# 📂 Folder Structure
 
 SmartDMS/
 │
@@ -58,15 +71,16 @@ SmartDMS/
 │ ├── app.py
 │ ├── config.py
 │ ├── extensions.py
+│ ├── security_helpers.py
 │ ├── models/
 │ ├── routes/
-│ ├── utils/
-│ └── database/
+│ └── uploads/ (created automatically if not present)
 │
-├── templates/
-├── static/
-│ └── css/style.css
+├── Frontend/
+│ ├── templates/
+│ └── static/
 │
+├── requirements.txt
 ├── README.md
 └── DEPLOYMENT.md
 
@@ -75,49 +89,107 @@ Copy code
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation & Setup
 
-### 1️⃣ Clone or Download the Project
+## 1️⃣ Clone the Project
 
 ```bash
 git clone https://github.com/pragneshraval288-create/SmartDMS-
-2️⃣ Install Dependencies
+cd SmartDMS
+2️⃣ Create Virtual Environment
+Windows:
+
+bash
+Copy code
+python -m venv venv
+venv\Scripts\activate
+Linux/macOS:
+
+bash
+Copy code
+python3 -m venv venv
+source venv/bin/activate
+3️⃣ Install Dependencies
 bash
 Copy code
 pip install -r requirements.txt
-3️⃣ Run the Application
-You can directly run:
-
+4️⃣ Run the Application
 bash
 Copy code
 python backend/app.py
-✅ Automatically opens in your browser
-✅ Works directly with VS Code’s Run button
+✅ Opens in browser automatically
+✅ Works from VS Code Run button
 
-🔑 Default Roles
-You can choose a role during registration:
+🔑 Password Policy (Custom Rule)
+SmartDMS enforces this strict password format:
 
-admin
+✅ Must contain:
 
-user
+1 Uppercase letter
 
-Admin → Full system access
-User → Can access only their own documents
+1 or more lowercase letters
 
-📌 Environment Variables (Optional)
-Create a .env file:
+Exactly 1 special character: @ # $ % ^ & *
+
+Ends with digits
+
+✅ Examples (Valid):
+
+perl
+Copy code
+Pragnesh@8849
+Aaaa#123
+Himu$987
+❌ Examples (Invalid):
+
+perl
+Copy code
+pragnesh@8849       (uppercase missing)
+Pragnesh@@8849      (more than 1 special)
+Pragnesh8849        (no special)
+12345               (invalid format)
+📦 Environment Variables (Optional)
+Create .env file:
 
 ini
 Copy code
 SECRET_KEY=your_secret_key
 UPLOAD_FOLDER=backend/uploads
-✅ Contributing
-Pull Requests are welcome!
-Feel free to add improvements, fixes, or new features.
+MAX_CONTENT_LENGTH=16MB
+📝 Deployment
+Production deployment guide is available in:
+
+✅ DEPLOYMENT.md
+
+Includes:
+
+Gunicorn setup
+
+Nginx reverse proxy
+
+HTTPS setup
+
+Environment variables
+
+SQLite / PostgreSQL config
+
+🎯 Future Improvements
+Document Version Control
+
+Audit Logs
+
+Detailed Activity Tracking
+
+Tags & Advanced Search
+
+Pagination for Large File Lists
+
+JWT Authentication (for mobile app support)
+
+Docker Deployment
 
 ✅ License
-MIT License
+MIT License © 2025 — Pragnesh Raval
 
 ✨ Author
-Pragnesh Raval (SmartDMS Owner)
-Developed with support from Parth Gadhavi and Yash Raval
+Pragnesh Raval
